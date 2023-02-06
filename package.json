@@ -1,0 +1,15 @@
+{
+  "name": "transcribe-aws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.264.0",
+    "aws-sdk": "^2.1310.0"
+  }
+}
