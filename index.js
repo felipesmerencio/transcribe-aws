@@ -1,17 +1,30 @@
-console.log('Alô mundo!');
+// console.log('Alô mundo!');
+
+var AWS = require("aws-sdk");
+AWS.config.update({region: 'sa-east-1'});
+
+// AWS.config.getCredentials(function(err) {
+//     if (err) console.log(err.stack);
+//     // credentials not loaded
+//     else {
+//       console.log("Access key:", AWS.config.credentials.accessKeyId);
+//     }
+// });
+
+// console.log("Region: ", AWS.config.region);
 
 var transcribeservice = new AWS.TranscribeService();
 
 var params = {
-CallAnalyticsJobName: 'labTranscribeAtivy', /* required */
-Media: { /* required */
+    CallAnalyticsJobName: 'labTranscribeAtivy', /* required */
+    Media: { /* required */
     MediaFileUri: 's3://test202302062/mono-conversasao_cliente_34999973687.mp3',
     RedactedMediaFileUri: 's3://test202302062/mono-conversasao_cliente_34999973687.mp3'
 },
 ChannelDefinitions: [
     {
-    ChannelId: '5',
-    ParticipantRole: AGENT | CUSTOMER
+        ChannelId: '5',
+        ParticipantRole: "CUSTOMER"
     },
     /* more items */
 ],
@@ -20,28 +33,25 @@ OutputEncryptionKMSKeyId: 'STRING_VALUE',
 OutputLocation: 'STRING_VALUE',
 Settings: {
     ContentRedaction: {
-    RedactionOutput: redacted, /* required */
-    RedactionType: PII, /* required */
-    PiiEntityTypes: [
-        BANK_ACCOUNT_NUMBER | BANK_ROUTING | CREDIT_DEBIT_NUMBER | CREDIT_DEBIT_CVV | CREDIT_DEBIT_EXPIRY | PIN | EMAIL | ADDRESS | NAME | PHONE | SSN | ALL,
-        /* more items */
-    ]
+        RedactionOutput: "redacted", /* required */
+        RedactionType: "PII", /* required */
+        PiiEntityTypes: []
     },
     LanguageIdSettings: {
-    '<LanguageCode>': {
-        LanguageModelName: 'STRING_VALUE',
-        VocabularyFilterName: 'STRING_VALUE',
-        VocabularyName: 'STRING_VALUE'
-    },
-    /* '<LanguageCode>': ... */
+        '<LanguageCode>': {
+            LanguageModelName: 'STRING_VALUE',
+            VocabularyFilterName: 'STRING_VALUE',
+            VocabularyName: 'STRING_VALUE'
+        },
+        /* '<LanguageCode>': ... */
     },
     LanguageModelName: 'STRING_VALUE',
     LanguageOptions: [
-    pt-BR,
-    /* more items */
+        "pt-BR",
+        /* more items */
     ],
-    VocabularyFilterMethod: remove | mask | tag,
-    VocabularyFilterName: 'STRING_VALUE',
+    VocabularyFilterMethod: "tag",
+    VocabularyFilterName: 'STRING_VALUE',    
     VocabularyName: 'STRING_VALUE'
 }
 };
