@@ -1,3 +1,17 @@
+# Processo para utilizar o Transcribe da AWS, para realizar a transcrição do audio para texto. 
+
+## A estapas de funcionamento será: o usuario posta um arquivo no bucket de entrada, esse audio seria enviado para o Transcribe e ao concluir o processo, será postado o arquivo json com o texto transcrito  no bucket de saida.   
+
+### Dentro do transcribe tera as tag abaixo:  
+
+    * transcripts - A transcrição inteira do audio para um texto.  
+    * speaker_labels: Tras o tempo de cada palavra dita no dialogo com seu tempo inicio e fim.  
+    * channel_labels: Tras cada palavra falada, com calculo de confiança, tempo inicio e fim.   
+    * items: Retorno semelhante ao "channel_labels".  
+
+    Obs. na pasta example, segue um arquivo de audio, texto e json de exemplo da transcrição.
+
+## Segue abaixo as etapas de configuração na AWS. Para habilitar o serviço
 # IAM - Gerenciameto de Acesso
 
 ## Politicas
