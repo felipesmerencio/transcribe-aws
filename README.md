@@ -1,6 +1,6 @@
 # Processo para utilizar o Transcribe da AWS, para realizar a transcrição do audio em texto. 
 
-## A estapas de funcionamento será: o usuario posta um arquivo no bucket de entrada, esse audio seria enviado para o Transcribe, e ao concluir o processo, será postado o arquivo json com o texto transcrito  no bucket de saida.   
+## A estapas de funcionamento será: o usuario posta um arquivo no bucket de entrada, esse audio sera enviado para o Transcribe, e ao concluir o processo, será postado o arquivo json com o texto transcrito  no bucket de saida.   
 
 ### Dentro do json gerado pelo transcribe tera as tag abaixo:  
 
