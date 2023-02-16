@@ -11,10 +11,13 @@
 
     Obs. na pasta example, segue um arquivo de audio, texto e json da transcrição.  
 
-## Segue abaixo as etapas de configuração no portal da AWS. Para habilitar o serviço
-# IAM - Gerenciameto de Acesso
 
-## Politicas
+
+
+# Segue abaixo as etapas de configuração no portal da AWS. Para habilitar o serviço
+## IAM - Gerenciameto de Acesso
+
+### Politicas
 
 1. Criar uma nova politica com acesso full para os recurso abaixo.
 
@@ -40,7 +43,7 @@
             ]
         }
 
-## Funções
+### Funções
 
     1. Criar um função com as permissões abaixo
         - AmazonTranscribeFullAccess
@@ -48,7 +51,7 @@
 
     2. Vincular a politica criada na etapa anterior "Politicas" a essa função.
 
-## Lambda
+### Lambda
 
 1. Criar um Lambda com template HelloWord de python3 e insira o codigo abaixo.
     ```
@@ -93,9 +96,9 @@
 
 3. Por fim clique em Criar Função.  
 
-## Bucket
+### Bucket
 
-### Bucket de POSTAGEM dos arquivos
+#### Bucket de POSTAGEM dos arquivos
 
 1. Criar o bucket para postagem dos arquivos de audio para transcrição, selecionando a região sa-east-1. Que é a região que compativel com o transcribe do idioma portugues Brasil.  
 
@@ -111,7 +114,7 @@
     g. Em "Especificar Função do Lambda", selecione a opção Lambda que foi criando anteriormente neste manual.  
     h. por fim, clique em "Salvar Alterações".  
     
-### Bucket de SAIDA do arquivo json com transcrição do audio. 
+#### Bucket de SAIDA do arquivo json com transcrição do audio. 
 
 1. Criar o bucket para postagem dos arquivos de audio para transcrição, selecionando a região sa-east-1. Que é a região que compativel com o transcribe do idioma portugues Brasil.   
 
